@@ -1,6 +1,8 @@
 import { createServerSupabaseClient } from '@/lib/supabase/server'
 import EnquiryRow from './EnquiryRow'
 
+export const dynamic = 'force-dynamic'
+
 export default async function AdminEnquiries() {
   const supabase = createServerSupabaseClient()
   const { data: enquiries } = await supabase

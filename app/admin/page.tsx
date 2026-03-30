@@ -1,6 +1,8 @@
 import { createServerSupabaseClient } from '@/lib/supabase/server'
 import StatsBar from '@/components/admin/StatsBar'
 import { formatDate } from '@/lib/utils'
+
+export const dynamic = 'force-dynamic'
 import Link from 'next/link'
 
 export default async function AdminDashboard() {

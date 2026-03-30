@@ -3,6 +3,8 @@ import type { Project } from '@/types'
 import Navbar from '@/components/public/Navbar'
 import Cursor from '@/components/public/Cursor'
 import Footer from '@/components/public/Footer'
+
+export const dynamic = 'force-dynamic'
 import ProjectsFilterGrid from './ProjectsFilterGrid'
 
 export const revalidate = 60

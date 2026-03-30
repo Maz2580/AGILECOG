@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import type { Project } from '@/types'
 import type { Metadata } from 'next'
 import Navbar from '@/components/public/Navbar'
+
+export const dynamic = 'force-dynamic'
 import Cursor from '@/components/public/Cursor'
 import Footer from '@/components/public/Footer'
 import ProjectDetail from './ProjectDetail'

@@ -1,6 +1,8 @@
 import { createServerSupabaseClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import Image from 'next/image'
+
+export const dynamic = 'force-dynamic'
 import { Plus } from 'lucide-react'
 import PublishToggle from './PublishToggle'
 

@@ -3,6 +3,8 @@ import type { Setting } from '@/types'
 import Navbar from '@/components/public/Navbar'
 import Cursor from '@/components/public/Cursor'
 import Loader from '@/components/public/Loader'
+
+export const dynamic = 'force-dynamic'
 import Footer from '@/components/public/Footer'
 import ImmersiveScroll from '@/components/public/ImmersiveScroll'
 import HeroImmersive from '@/components/public/HeroImmersive'
