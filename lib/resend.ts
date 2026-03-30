@@ -1,6 +1,10 @@
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+function getResendClient() {
+  const key = process.env.RESEND_API_KEY
+  if (!key) throw new Error('RESEND_API_KEY is not set')
+  return new Resend(key)
+}
 
 interface ContactEmailProps {
   name: string
@@ -11,6 +15,7 @@ interface ContactEmailProps {
 }
 
 export async function sendContactEmail(data: ContactEmailProps) {
+  const resend = getResendClient()
   const { error } = await resend.emails.send({
     from: 'AGILECOG <noreply@agilecog.fyi>',
     to: process.env.CONTACT_EMAIL_TO!,
