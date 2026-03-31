@@ -9,7 +9,7 @@ import Footer from '@/components/public/Footer'
 import ImmersiveScroll from '@/components/public/ImmersiveScroll'
 import HeroImmersive from '@/components/public/HeroImmersive'
 import PalaceDoors from '@/components/public/PalaceDoors'
-import GrandGallery from '@/components/public/GrandGallery'
+import GallerySwitch from '@/components/public/GallerySwitch'
 import RoomDivider from '@/components/public/RoomDivider'
 import AboutImmersive from '@/components/public/AboutImmersive'
 import ProcessImmersive from '@/components/public/ProcessImmersive'
@@ -46,8 +46,8 @@ export default async function HomePage() {
           {/* Transition: Palace doors swing open with cinematic light */}
           <PalaceDoors />
 
-          {/* Room 2: The Grand Gallery — Walk through framed paintings */}
-          <GrandGallery />
+          {/* Room 2: The Grand Gallery — 3D walkthrough on desktop, scroll gallery on mobile */}
+          <GallerySwitch />
 
           {/* Room 3: The Studio — Who we are */}
           <RoomDivider label="The Studio" number="II" />
