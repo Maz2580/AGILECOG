@@ -115,7 +115,7 @@ export default function HeroImmersive({ subtitle }: HeroImmersiveProps) {
           </p>
 
           <div className="hero-cta-immersive opacity-0 mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 sm:gap-5">
-            <a href="#projects" className="btn-gold text-center">View Our Work</a>
+            <a href="#gallery" className="btn-gold text-center">View Our Work</a>
             <a href="#contact" className="btn-ghost text-center">Get in Touch</a>
           </div>
         </div>
