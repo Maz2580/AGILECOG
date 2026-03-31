@@ -2,21 +2,41 @@
 
 import { useState, useEffect } from 'react'
 import { createClient } from '@/lib/supabase/client'
-import { Save, Check } from 'lucide-react'
+import { Save, Check, Image as ImageIcon } from 'lucide-react'
 import type { SiteSettings } from '@/types'
+
+const galleryDefaults = [
+  { label: 'Marble & Light', room: 'Bathroom' },
+  { label: 'Stone & Craft', room: 'Kitchen' },
+  { label: 'Warmth & Rest', room: 'Bedroom' },
+  { label: 'Form & Function', room: 'Wardrobe' },
+  { label: 'Timber & Glow', room: 'Joinery' },
+  { label: 'Detail & Finish', room: 'Kitchen Detail' },
+  { label: 'Light & Space', room: 'Master Suite' },
+]
 
 const defaultSettings: SiteSettings = {
   hero_tagline: 'Architecture That Defines Tomorrow.',
   hero_sub: 'We design spaces that transcend function.',
-  projects_count: '240',
-  awards_count: '42',
-  countries_count: '18',
-  years_count: '16',
   studio_email: 'hello@agilecog.fyi',
   studio_phone: '',
   studio_address: '',
   instagram: '',
   linkedin: '',
+  gallery_painting_1_label: galleryDefaults[0].label,
+  gallery_painting_1_room: galleryDefaults[0].room,
+  gallery_painting_2_label: galleryDefaults[1].label,
+  gallery_painting_2_room: galleryDefaults[1].room,
+  gallery_painting_3_label: galleryDefaults[2].label,
+  gallery_painting_3_room: galleryDefaults[2].room,
+  gallery_painting_4_label: galleryDefaults[3].label,
+  gallery_painting_4_room: galleryDefaults[3].room,
+  gallery_painting_5_label: galleryDefaults[4].label,
+  gallery_painting_5_room: galleryDefaults[4].room,
+  gallery_painting_6_label: galleryDefaults[5].label,
+  gallery_painting_6_room: galleryDefaults[5].room,
+  gallery_painting_7_label: galleryDefaults[6].label,
+  gallery_painting_7_room: galleryDefaults[6].room,
 }
 
 export default function AdminSettings() {
@@ -102,43 +122,50 @@ export default function AdminSettings() {
           </div>
         </div>
 
-        {/* Stats */}
+        {/* Gallery Paintings */}
         <div className="bg-bg2 border border-border rounded-xl p-6 space-y-6">
-          <h2 className="font-display text-lg font-light text-text">Stats Numbers</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="flex items-center gap-3 mb-2">
+            <ImageIcon size={18} className="text-gold" />
             <div>
-              <label className="admin-label">Projects</label>
-              <input
-                value={settings.projects_count}
-                onChange={(e) => update('projects_count', e.target.value)}
-                className="admin-input"
-              />
-            </div>
-            <div>
-              <label className="admin-label">Awards</label>
-              <input
-                value={settings.awards_count}
-                onChange={(e) => update('awards_count', e.target.value)}
-                className="admin-input"
-              />
-            </div>
-            <div>
-              <label className="admin-label">Countries</label>
-              <input
-                value={settings.countries_count}
-                onChange={(e) => update('countries_count', e.target.value)}
-                className="admin-input"
-              />
-            </div>
-            <div>
-              <label className="admin-label">Years</label>
-              <input
-                value={settings.years_count}
-                onChange={(e) => update('years_count', e.target.value)}
-                className="admin-input"
-              />
+              <h2 className="font-display text-lg font-light text-text">Gallery Paintings</h2>
+              <p className="text-xs text-mid/60 mt-0.5">Labels shown beneath each painting in the 3D gallery walkthrough</p>
             </div>
           </div>
+
+          <div className="space-y-4">
+            {[1, 2, 3, 4, 5, 6, 7].map((n) => {
+              const labelKey = `gallery_painting_${n}_label` as keyof SiteSettings
+              const roomKey = `gallery_painting_${n}_room` as keyof SiteSettings
+              return (
+                <div key={n} className="grid grid-cols-[32px_1fr_1fr] gap-3 items-end">
+                  <div className="flex items-center justify-center h-10 rounded bg-gold/[0.06] text-gold/40 text-xs font-display">
+                    {n}
+                  </div>
+                  <div>
+                    <label className="admin-label text-[0.6rem]">Title</label>
+                    <input
+                      value={settings[labelKey]}
+                      onChange={(e) => update(labelKey, e.target.value)}
+                      className="admin-input text-sm"
+                      placeholder="e.g. Marble & Light"
+                    />
+                  </div>
+                  <div>
+                    <label className="admin-label text-[0.6rem]">Room Type</label>
+                    <input
+                      value={settings[roomKey]}
+                      onChange={(e) => update(roomKey, e.target.value)}
+                      className="admin-input text-sm"
+                      placeholder="e.g. Bathroom"
+                    />
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+          <p className="text-[0.6rem] text-mid/30 mt-2">
+            To change the gallery images, replace the files in <code className="text-gold/40">public/images/</code> and redeploy.
+          </p>
         </div>
 
         {/* Contact */}
@@ -171,7 +198,7 @@ export default function AdminSettings() {
               value={settings.studio_address}
               onChange={(e) => update('studio_address', e.target.value)}
               className="admin-input resize-none h-20"
-              placeholder="Level 12, 123 Collins Street&#10;Melbourne VIC 3000"
+              placeholder={"Level 12, 123 Collins Street\nMelbourne VIC 3000"}
             />
           </div>
         </div>

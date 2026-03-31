@@ -8,9 +8,9 @@ export const dynamic = 'force-dynamic'
 import Footer from '@/components/public/Footer'
 import ImmersiveScroll from '@/components/public/ImmersiveScroll'
 import HeroImmersive from '@/components/public/HeroImmersive'
-import DoorTransition from '@/components/public/DoorTransition'
+import PalaceDoors from '@/components/public/PalaceDoors'
+import GrandGallery from '@/components/public/GrandGallery'
 import RoomDivider from '@/components/public/RoomDivider'
-import InteractiveMosaic from '@/components/public/InteractiveMosaic'
 import AboutImmersive from '@/components/public/AboutImmersive'
 import ProcessImmersive from '@/components/public/ProcessImmersive'
 import QuoteSection from '@/components/public/QuoteSection'
@@ -43,12 +43,11 @@ export default async function HomePage() {
             subtitle={settings.hero_sub || 'We design spaces that transcend function — environments that inspire, endure, and become woven into the human story.'}
           />
 
-          {/* Transition: Doors open revealing brand pillars */}
-          <DoorTransition />
+          {/* Transition: Palace doors swing open with cinematic light */}
+          <PalaceDoors />
 
-          {/* Room 2: The Gallery — Interactive puzzle mosaic of real work */}
-          <RoomDivider label="The Gallery" number="I" />
-          <InteractiveMosaic />
+          {/* Room 2: The Grand Gallery — Walk through framed paintings */}
+          <GrandGallery />
 
           {/* Room 3: The Studio — Who we are */}
           <RoomDivider label="The Studio" number="II" />

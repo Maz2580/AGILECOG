@@ -35,13 +35,23 @@ export interface Setting {
 export type SiteSettings = {
   hero_tagline: string
   hero_sub: string
-  projects_count: string
-  awards_count: string
-  countries_count: string
-  years_count: string
   studio_email: string
   studio_phone: string
   studio_address: string
   instagram: string
   linkedin: string
+  gallery_painting_1_label: string
+  gallery_painting_1_room: string
+  gallery_painting_2_label: string
+  gallery_painting_2_room: string
+  gallery_painting_3_label: string
+  gallery_painting_3_room: string
+  gallery_painting_4_label: string
+  gallery_painting_4_room: string
+  gallery_painting_5_label: string
+  gallery_painting_5_room: string
+  gallery_painting_6_label: string
+  gallery_painting_6_room: string
+  gallery_painting_7_label: string
+  gallery_painting_7_room: string
 }
